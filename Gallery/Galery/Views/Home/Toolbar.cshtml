@@ -1,0 +1,27 @@
+﻿@using Galery.Models
+@model Wrapper
+<div class="navbar " role="navigation">
+    <div class="pull-left">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#toolbarRight">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div id="toolbarRight" class="collapse navbar-collapse panel-collapse">
+        @foreach (var us in Model.Users)
+        {
+            <div class="dropdown">
+                <a href=@Html.Raw("#collapse"+us.Id) class="dropdown-toggle panel-title" data-toggle="collapse">@us.Name @us.Surname<b class="caret"></b></a>
+               
+                <ul id=@Html.Raw("collapse"+us.Id) class="collapse">
+                    @foreach (var pc in Model.GetPicts(us.Id))
+                     {
+                        <li><a href=@Html.Raw("/Home/PictureInform/"+pc.Id)>@pc.Title</a></li>
+                     }
+                </ul>
+            </div>
+        }       
+    </div>
+</div>

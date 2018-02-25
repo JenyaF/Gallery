@@ -1,0 +1,22 @@
+﻿@model Galery.Models.User
+
+@{
+    ViewBag.Title = "AddUser";
+}
+
+<h2>Welcome, @Model.Name!</h2>
+<div>
+    Registration completed successfull!    
+    <div class="col-md-6 col-sm-6 col-lg-6">
+        <form action="/Home/FormForPicture" method="post" class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class=" col-sm-6">
+                    <button type="submit" class="btn btn-default">Add Picture</button>
+                </div>
+                <div class=" col-sm-6">
+                    <a href="/Home/Index">Go back to the main page</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

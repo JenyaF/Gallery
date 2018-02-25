@@ -1,0 +1,60 @@
+﻿@model Galery.Models.Wrapper
+
+@{
+    ViewBag.Title = "PicturesOfAutor";
+}
+
+<h2>Collection is amazing</h2>
+<h3>handmade...</h3>
+<div>
+    <section id="wrapper">
+
+        <!--<hgroup><h2>BlocksIt.js Демо 2</h2>
+    <h3>Динамическое формирование сетки с CSS3 переходами (измените размер окна)</h3>
+    </hgroup>-->
+
+        <div id="container">
+
+
+            @foreach (var pc in Model.GetPictUser())
+        {
+            <div class="grid">
+                <div class="imgholder">
+                    <a href=@Html.Raw("\"data:image/jpeg;base64,"
+                             + Convert.ToBase64String(pc.Data) + "\" ")>
+                        <img src=@Html.Raw("\"data:image/jpeg;base64,"
+                              + Convert.ToBase64String(pc.Data) + "\" ") title="@pc.Id">
+                    </a>
+                </div>
+                <strong>@pc.Title</strong>
+                <p>@pc.Direction</p>
+
+
+                @if (Session["Id"] == null || (int)Session["Id"] != pc.IdUser)
+            {
+
+                <button class="btn btn-success btn-sm">Buy @pc.Price UAH</button>
+
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-sm-6">
+                    <form action=@Html.Raw("/Home/DeletePicture/"+pc.Id) method="post" class="form-horizontal" role="form">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+                <div class="col-sm-6">
+                    <form action=@Html.Raw("/Home/FormForEditPicture/"+pc.Id) method="get" class="form-horizontal" role="form">
+                        <button type="submit" class="btn btn-info">Edit</button>
+                    </form>
+                </div>
+            </div>
+    }
+                <div class="meta">@pc.Name @pc.Surname</div>
+            </div>
+    }
+
+        </div>
+    </section>
+</div>

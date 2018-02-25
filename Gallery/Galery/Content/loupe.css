@@ -1,0 +1,29 @@
+﻿.content {
+    margin: 15% auto;
+    position: relative;
+    width: 430px;
+}
+
+a.demo {
+    float: left;
+}
+
+a img {
+    border: none;
+}
+
+img.demo {
+    float: right;
+}
+
+.demo {
+    position: relative;
+    top: -120px;
+}
+
+.loupe {
+    background-color: #555;
+    background: rgba(0, 0, 0, 0.25);
+    border: 5px solid rgba(0, 0, 0, 0);
+    cursor: url(../Images/blank.png), url(../Images/blank.cur), none;
+}

@@ -1,0 +1,38 @@
+﻿@model Galery.Models.Wrapper
+
+@{
+    ViewBag.Title = "FormForEditPicture";
+}
+
+<h2>Edit picture</h2>
+<h3>Filling the form below</h3>
+<div>
+    <form action="/Home/EditPicture" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
+        <input type="text" name="Id" class="form-control hidden" value=@Model.Picture.Id>
+        <div class="form-group">
+            <label for="inputTitle" class="col-sm-3 control-label">Title</label>
+            <div class="col-sm-9">
+                <input type="text" name="Title" required class="form-control" id="inputTitle" placeholder="Winter night" value=@Model.Picture.Title>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputDir" class="col-sm-3 control-label">Direction</label>
+            <div class="col-sm-9">
+                <input type="text" name="Direction" required class="form-control" id="inputDir" placeholder="Landscape" value=@Model.Picture.Direction>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputPrice" class="col-sm-3 control-label">Price</label>
+            <div class="col-sm-9">
+                <input type="number" required step="100" min="0" max="100000" value=@Model.Picture.Price name="Price" class="form-control" id="inputPrice">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-3">
+                <button type="submit" class="btn btn-success btn-group-justified">Enter</button>
+            </div>
+        </div>
+    </form>
+</div>
